@@ -1,19 +1,20 @@
 <script setup>
-import { RouterLink, useRouter} from 'vue-router';
+import { RouterLink} from 'vue-router';
 import { reactive, ref} from 'vue';
 
 const data = reactive({})
 let welcomePageShow = ref(false)
 let message = ref('')
+const users = reactive({})
 
 function signIn(){
-  let users = JSON.parse(localStorage.getItem('users'))
+	Object.assign(users, JSON.parse(localStorage.getItem('users')))
 
-  if(users.email == data.email && users.password == data.password){
-	welcomePageShow.value = true
-  }else{
-	message.value = "Username/Password Wrong"
-  }
+	if(users.email == data.email && users.password == data.password){
+		welcomePageShow.value = true
+	}else{
+		message.value = "Username/Password Wrong"
+	}
 }
 </script>
 
@@ -36,7 +37,7 @@ function signIn(){
       
 			<div class="mt-8 content-center">
 				<label class="text-sm font-bold text-gray-700 tracking-wide">Password</label>
-				<input v-model="data.password" class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password">
+				<input v-model="data.password" type="password" class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"  placeholder="Enter your password">
       </div>
 
 			<div class="flex items-center justify-between">
@@ -58,10 +59,10 @@ function signIn(){
 		</form>
 	</div>
 
-	<div v-show="welcomePageShow" class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl z-10">
+	<div v-show="welcomePageShow" class="max-w-xl w-full space-y-12 p-10 bg-white rounded-xl z-10">
 		<div class="text-center">
 			<h2 class="mt-6 text-3xl font-bold text-gray-900">
-				Welcome to homepage
+				Welcome, {{ users['name'] }}
 			</h2>
 		</div>
 	</div>

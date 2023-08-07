@@ -35,12 +35,12 @@ function signUp(){
 
 			<div class="mt-8 content-center">
 				<label class="text-sm font-bold text-gray-700 tracking-wide">Password</label>
-				<input v-model="data.password" class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password">
+				<input v-model="data.password" type="password" class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Enter your password">
       </div>
 
       <div class="mt-8 content-center">
-				<label class="text-sm font-bold text-gray-700 tracking-wide">Confirm Password</label>
-				<input v-model="data.confirmPassword" class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Re enter your password">
+			<label class="text-sm font-bold text-gray-700 tracking-wide">Confirm Password</label>
+			<input v-model="data.confirmPassword" type="password" class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Re enter your password">
       </div>
 
 			<div>
