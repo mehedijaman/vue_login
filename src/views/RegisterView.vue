@@ -6,8 +6,13 @@ const data = reactive({})
 let message = ref('')
 
 function signUp(){
-	localStorage.setItem('users', JSON.stringify(data))
-  	message.value = "User registered successfully !"
+	if(data.password == data.confirmPassword){
+		localStorage.setItem('users', JSON.stringify(data))
+		  message.value = "User registered successfully !"
+	}
+	else{
+		message.value ="Password mismatch ! Pleae enter correct password."
+	}
 }
 </script>
 

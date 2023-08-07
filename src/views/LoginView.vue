@@ -13,6 +13,7 @@ function signIn(){
 	if(users.email == data.email && users.password == data.password){
 		welcomePageShow.value = true
 	}else{
+		welcomePageShow.value = false
 		message.value = "Username/Password Wrong"
 	}
 }
