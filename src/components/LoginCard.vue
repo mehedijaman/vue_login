@@ -1,31 +1,12 @@
-<script setup>
-import { RouterLink, useRouter} from 'vue-router';
-import { reactive, ref} from 'vue';
-
-const data = reactive({})
-let welcomePageShow = ref(false)
-let message = ref('')
-
-function signIn(){
-  let users = JSON.parse(localStorage.getItem('users'))
-
-  if(users.email == data.email && users.password == data.password){
-	welcomePageShow.value = true
-  }else{
-	message.value = "Username/Password Wrong"
-  }
-}
-</script>
-
+<script setup></script>
 <template>
-<div  class="min-h-screen flex  justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center" style="background-image: url(https://images.unsplash.com/photo-1525302220185-c387a117886e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);">
-	<div class="absolute bg-black opacity-60 inset-0 z-0"></div>
-	<div v-show="!welcomePageShow" class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl z-10">
+<div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+	<div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl z-10">
 		<div class="text-center">
 			<h2 class="mt-6 text-3xl font-bold text-gray-900">
 				Login
 			</h2>
-			<p class="mt-2 text-sm text-red-600">{{ message }}</p>
+			<p class="mt-2 text-sm text-gray-600">{{ message }}</p>
 		</div>
 		<form class="mt-8 space-y-6" action="#" method="POST">
 			<input type="hidden" name="remember" value="true">
@@ -57,13 +38,4 @@ function signIn(){
 			</p>
 		</form>
 	</div>
-
-	<div v-show="welcomePageShow" class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl z-10">
-		<div class="text-center">
-			<h2 class="mt-6 text-3xl font-bold text-gray-900">
-				Welcome to homepage
-			</h2>
-		</div>
-	</div>
-</div>
 </template>

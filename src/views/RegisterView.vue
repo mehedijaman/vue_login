@@ -1,11 +1,13 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import {reactive} from 'vue';
+import {reactive, ref} from 'vue';
 
 const data = reactive({})
+let message = ref('')
 
 function signUp(){
-  alert(data)
+	localStorage.setItem('users', JSON.stringify(data))
+  	message.value = "User registered successfully !"
 }
 </script>
 
@@ -18,8 +20,7 @@ function signUp(){
 			<h2 class="mt-6 text-3xl font-bold text-gray-900">
 				Register now
 			</h2>
-			<p class="mt-2 text-sm text-gray-600">Register a new account</p>
-      <p>{{ data }}</p>
+			<p class="mt-2 text-sm text-blue-600">{{ message }}</p>      
 		</div>
 		<form class="mt-8 space-y-6" action="#" method="POST">
       <div class="relative">
