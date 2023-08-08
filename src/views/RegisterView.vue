@@ -8,7 +8,7 @@ let message = ref('')
 function signUp(){
 	if(data.password == data.confirmPassword){
 		localStorage.setItem('users', JSON.stringify(data))
-		  message.value = "User registered successfully !"
+		message.value = "User registered successfully !"
 	}
 	else{
 		message.value ="Password mismatch ! Pleae enter correct password."
